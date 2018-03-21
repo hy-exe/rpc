@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+
+	<bean id="simpleDispatcher" class="com.rpc.common.tcp.service.SimpleDispatcher">
+		<property name="threads" value="${biz.request.threads}" />
+		<property name="courses">
+			<set>
+				<ref bean="getInfoCourse" />
+			</set>
+		</property>
+	</bean>
+
+	<bean id="baseCourse" class="com.rpc.server.biz.BaseCouse">
+	</bean>
+
+	<bean id="getInfoCourse" class="com.rpc.server.biz.GetInfoCourse"
+		parent="baseCourse">
+	</bean>
+	
+</beans>
